@@ -9,3 +9,18 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Notification {
+  id          String @id
+  recipientId String
+  content     String
+  category    String
+  readAt      DateTime? //? permite ser null
+  createdAt   DateTime @default(now()) //preenche automaticamente com a data atual
+
+  @@index([recipientId])
+}
+
+
+// @id define uma primary key
+// quando o user se atutentica, ele tras o id do user, assim trás as notifications desse user
