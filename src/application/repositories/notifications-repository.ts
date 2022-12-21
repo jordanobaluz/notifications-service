@@ -3,6 +3,7 @@
 
 import { Notification } from '../entities/notification';
 
+// implementa metodos abstratos para ser implementado por uma classe concreta
 export abstract class NotificationsRepository {
   abstract create(notification: Notification): Promise<void>;
   abstract findById(notificationId: string): Promise<Notification | null>;
@@ -10,3 +11,5 @@ export abstract class NotificationsRepository {
   abstract countManyByRecipientId(recipientId: string): Promise<number>;
   abstract findManyByRecipientId(recipientId: string): Promise<Notification[]>;
 }
+
+// é uma classe abstrata para um repositorio de notificações, onde é definido os metodos para uma classe concreta
